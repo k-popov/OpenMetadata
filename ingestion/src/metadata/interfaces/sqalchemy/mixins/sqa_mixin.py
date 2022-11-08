@@ -27,7 +27,7 @@ from metadata.generated.schema.entity.services.databaseService import (
     DatabaseServiceType,
 )
 from metadata.orm_profiler.api.models import TablePartitionConfig
-from metadata.orm_profiler.orm.converter import ometa_to_orm
+from metadata.orm_profiler.orm.converter import ometa_to_sqa_orm
 from metadata.orm_profiler.profiler.handle_partition import (
     get_partition_cols,
     is_partitioned,
@@ -68,7 +68,7 @@ class SQAInterfaceMixin:
         Returns:
             DeclarativeMeta
         """
-        return ometa_to_orm(self.table_entity, self.ometa_client, sqa_metadata_obj)
+        return ometa_to_sqa_orm(self.table_entity, self.ometa_client, sqa_metadata_obj)
 
     def get_columns(self) -> Column:
         """get columns from an orm object"""
